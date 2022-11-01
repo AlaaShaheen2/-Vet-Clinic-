@@ -8,3 +8,13 @@
  SELECT * FROM animals WHERE neutered IS true;
  SELECT * FROM animals WHERE name !='Gabumon';
  SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 and 17.3;
+
+
+BEGIN TRANSACTION;
+
+ALTER TABLE animals RENAME COLUMN species TO unspecified;
+
+SELECT * FROM animals;
+
+ROLLBACK TRANSACTION;
+SELECT * FROM animals;
