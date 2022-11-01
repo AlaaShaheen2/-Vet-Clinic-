@@ -18,3 +18,16 @@ SELECT * FROM animals;
 
 ROLLBACK TRANSACTION;
 SELECT * FROM animals;
+
+--update animales table
+BEGIN TRANSACTION;
+UPDATE animals SET species='Digimon' WHERE name Like'%mon%';
+UPDATE animals SET species='Pokemon' WHERE species IS NULL;
+COMMIT TRANSACTION;
+SELECT * FROM animals;
+
+BEGIN TRANSACTION;
+DELETE FROM animals;
+SELECT * FROM animals;
+ROLLBACK TRANSACTION;
+SELECT * FROM animals;
